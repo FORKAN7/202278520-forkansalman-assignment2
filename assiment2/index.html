@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+<body>
+
+<header>
+    <div class="header-text">
+        <h1>Forkan ALSalman</h1>
+        <p>Software Engineering Student</p>
+    </div>
+
+    <div class="header-actions">
+        <input type="text" id="name-input" placeholder="Enter your name">
+        <button id="save-name-btn">Save Name</button>
+        <button id="dark-toggle">Dark Mode</button>
+    </div>
+</header>
+
+<nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<!-- ===== About Section ===== -->
+<section id="about" class="about">
+    
+    <div class="about-text">
+        <h2>About Me</h2>
+        <p id="greeting"></p>
+        <p id="personal-message" class="personal-message"></p>
+        <p>
+            I am a Software Engineering student passionate about Artificial Intelligence and intelligent systems.
+        </p>
+        <p>
+            I enjoy building user-centered applications and exploring innovative technology solutions.
+        </p>
+    </div>
+
+    <div class="about-image">
+        <img src="assets/images/s202278520.jpg" alt="Profile Image">
+    </div>
+
+</section>
+
+<!-- ===== Projects Section ===== -->
+<section id="projects">
+    <h2>Projects</h2>
+<div class="filter-buttons">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="ai">AI</button>
+    <button class="filter-btn" data-filter="design">Design</button>
+    <button class="filter-btn" data-filter="web">Web</button>
+</div>
+
+<p id="empty-message" class="empty-message"></p>
+    <div class="projects-container">
+
+        <div class="project-card" data-category="ai">
+            <h3>COE292 – AI Model</h3>
+            <p>
+                Developed a machine learning model for intelligent prediction and data analysis using AI techniques.
+            </p>
+        </div>
+
+        <div class="project-card" data-category="design">
+            <h3>SWE216 – App Design</h3>
+            <p>
+                Designed and prototyped a modern mobile application focusing on user experience and clean UI design.
+            </p>
+        </div>
+
+        <div class="project-card" data-category="web">
+    <h3>SWE363 – Portfolio Website</h3>
+    <p>
+        Built a responsive personal portfolio website using HTML, CSS, and JavaScript.
+    </p>
+</div>
+
+    </div>
+</section>
+
+<!-- ===== Contact Section ===== -->
+<section id="contact">
+    <h2>Contact</h2>
+   <form id="contact-form">
+    <input type="text" id="contact-name" placeholder="Name">
+    <input type="email" id="contact-email" placeholder="Email">
+    <textarea id="contact-message" placeholder="Message" rows="4"></textarea>
+    <button type="submit">Send Message</button>
+    <p id="form-message" class="form-message"></p>
+</form>
+</section>
+
+<script src="js/script.js"></script>
+</body>
+</html>

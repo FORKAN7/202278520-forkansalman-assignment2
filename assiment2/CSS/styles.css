@@ -1,0 +1,269 @@
+/* ===== Color Variables ===== */
+:root {
+    --primary: #7B2CBF;
+    --primary-light: #9D4EDD;
+    --gradient: linear-gradient(135deg, #7B2CBF, #C77DFF);
+    --background: #F8F9FB;
+    --text-dark: #1A1A1A;
+    --text-light: #666;
+}
+
+/* ===== General ===== */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: var(--background);
+    color: var(--text-dark);
+}
+
+/* ===== Header ===== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+header h1 {
+    margin: 0;
+    color: var(--primary);
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.header-actions input {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+/* ===== Navigation ===== */
+nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--primary);
+}
+
+.personal-message {
+    color: var(--primary);
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+/* ===== Sections ===== */
+section {
+    padding: 60px 8%;
+}
+
+/* ===== About Section ===== */
+.about {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.about-text {
+    max-width: 500px;
+}
+
+.about-image img {
+    width: 250px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(123,44,191,0.2);
+}
+
+/* ===== Projects ===== */
+#projects {
+    text-align: center;
+}
+
+.projects-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.project-card {
+    background: white;
+    padding: 25px;
+    width: 300px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    transition: 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(123,44,191,0.2);
+}
+
+.project-card h3 {
+    margin-top: 0;
+    color: var(--primary);
+}
+
+/* ===== Contact Form ===== */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+    margin: auto;
+}
+
+input, textarea {
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+button {
+    background: var(--gradient);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+}
+
+.filter-btn.active {
+    box-shadow: 0 0 0 3px rgba(123, 44, 191, 0.2);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+
+    header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .about {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .projects-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.dark-mode {
+    background-color: #1E1E2F;
+    color: white;
+}
+
+.dark-mode header {
+    background-color: #2A2A40;
+}
+
+.dark-mode .project-card {
+    background-color: #2A2A40;
+}
+.dark-mode nav a {
+    color: white;
+}
+
+.dark-mode input,
+.dark-mode textarea {
+    background-color: #2A2A40;
+    color: white;
+    border: 1px solid #555;
+}
+
+.dark-mode .empty-message {
+    color: #ddd;
+}
+
+#greeting {
+    color: var(--primary);
+    font-weight: 600;
+}
+/* new interactive style assiment 2 */
+.empty-message {
+    text-align: center;
+    color: var(--text-light);
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.form-message {
+    margin-top: 10px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.form-message.error {
+    color: #d62828;
+}
+
+.form-message.success {
+    color: #2a9d8f;
+}
+
+/* animation */
+section {
+    padding: 60px 8%;
+    animation: fadeIn 0.6s ease;
+}
+
+button,
+nav a,
+.project-card,
+input,
+textarea {
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
