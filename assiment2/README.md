@@ -1,28 +1,37 @@
-# 202278520-forkansalman-assignment2
+# 202278520-forkansalman-assignment3
 
-# Assignment 2 – Interactive Portfolio Website
+## Assignment 3 – Advanced Portfolio Website
 
 ## Project Description
 
-This project is an interactive personal portfolio website developed using HTML, CSS, and JavaScript.
+This project is an advanced interactive personal portfolio website developed for SWE363 Assignment 3.
 
-It is an extension of Assignment 1, where additional dynamic features and improved user experience were implemented.
+It builds on my previous work from Assignments 1 and 2. In Assignment 2, I added interactive front-end features such as dark mode, visitor name storage, project filtering, and contact form validation. In Assignment 3, I extended the portfolio by adding more advanced functionality, including API integration, stronger application logic, improved state management, enhanced user guidance, and more detailed documentation.
 
-The website includes sections for About, Projects, and Contact, enhanced with modern front-end techniques.
+The purpose of this project is to demonstrate my ability to create a more dynamic and feature-rich web application using HTML, CSS, and JavaScript while following good coding practices and documenting the development process clearly.
 
 ---
 
 ## Features
 
-- Responsive layout (desktop, tablet, mobile)
-- Modern purple-themed UI design
-- Dark Mode toggle (saved using localStorage)
-- Time-based greeting message
-- Save visitor name using localStorage
+### Previous Features Continued from Assignment 2
+- Responsive layout for desktop, tablet, and mobile
+- Modern portfolio design
+- Dark mode toggle with saved preference using localStorage
+- Personalized visitor name saved using localStorage
+- Greeting message based on time of day
 - Project filtering by category
-- Contact form validation with error and success messages
-- Empty state message when no projects are found
-- Smooth animations and hover effects
+- Contact form validation with user feedback
+- Smooth transitions and hover effects
+
+### New Features Added in Assignment 3
+- GitHub API integration to display public repositories dynamically
+- Project sorting by date and title
+- Remembering selected filter and sort option using localStorage
+- Expandable project details section
+- Improved user guidance section explaining how to navigate the website
+- Stronger validation logic and improved feedback messages
+- Better technical documentation and AI usage documentation
 
 ---
 
@@ -49,32 +58,32 @@ Use VS Code with Live Server extension.
 
 ---
 
-## Interactive Features (Assignment 2)
+## Technologies Used
 
-This assignment adds the following improvements:
-
-- Dynamic greeting based on time
-- Project filtering using buttons
-- Theme preference saving using localStorage
-- Visitor name saving and display
-- Contact form validation with user feedback
-- Improved animations and transitions
+- HTML5
+- CSS3
+- JavaScript
+- GitHub API
+- localStorage
 
 ---
 
-## AI Usage Summary
+## Folder Structure
 
-AI tools such as ChatGPT and GitHub Copilot were used to assist with:
-
-- Planning interactive features
-- Debugging JavaScript logic
-- Improving UI/UX design
-- Writing documentation
-
-Detailed explanation is available in:
-`docs/ai-usage-report.md`
-
----
+```text
+202278520-forkansalman-assignment3/
+├── README.md
+├── index.html
+├── css/
+│   └── styles.css
+├── js/
+│   └── script.js
+├── assets/
+│   └── images/
+├── docs/
+│   ├── ai-usage-report.md
+│   └── technical-documentation.md
+└── .gitignore
 
 ## Author
 

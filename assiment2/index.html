@@ -2,102 +2,189 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>My Portfolio</title>
+    <title>Forkan AlSalman | Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Forkan AlSalman portfolio website with projects, GitHub integration, and interactive features.">
     <link rel="stylesheet" href="css/styles.css">
-
 </head>
 <body>
-
-<header>
-    <div class="header-text">
-        <h1>Forkan ALSalman</h1>
-        <p>Software Engineering Student</p>
-    </div>
-
-    <div class="header-actions">
-        <input type="text" id="name-input" placeholder="Enter your name">
-        <button id="save-name-btn">Save Name</button>
-        <button id="dark-toggle">Dark Mode</button>
-    </div>
-</header>
-
-<nav>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-</nav>
-
-<!-- ===== About Section ===== -->
-<section id="about" class="about">
-    
-    <div class="about-text">
-        <h2>About Me</h2>
-        <p id="greeting"></p>
-        <p id="personal-message" class="personal-message"></p>
-        <p>
-            I am a Software Engineering student passionate about Artificial Intelligence and intelligent systems.
-        </p>
-        <p>
-            I enjoy building user-centered applications and exploring innovative technology solutions.
-        </p>
-    </div>
-
-    <div class="about-image">
-        <img src="assets/images/s202278520.jpg" alt="Profile Image">
-    </div>
-
-</section>
-
-<!-- ===== Projects Section ===== -->
-<section id="projects">
-    <h2>Projects</h2>
-<div class="filter-buttons">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="ai">AI</button>
-    <button class="filter-btn" data-filter="design">Design</button>
-    <button class="filter-btn" data-filter="web">Web</button>
-</div>
-
-<p id="empty-message" class="empty-message"></p>
-    <div class="projects-container">
-
-        <div class="project-card" data-category="ai">
-            <h3>COE292 – AI Model</h3>
-            <p>
-                Developed a machine learning model for intelligent prediction and data analysis using AI techniques.
-            </p>
+    <header class="site-header">
+        <div class="header-text">
+            <h1>Forkan AlSalman</h1>
+            <p>Software Engineering Student</p>
         </div>
 
-        <div class="project-card" data-category="design">
-            <h3>SWE216 – App Design</h3>
-            <p>
-                Designed and prototyped a modern mobile application focusing on user experience and clean UI design.
-            </p>
+        <div class="header-actions">
+            <input type="text" id="name-input" placeholder="Enter your name" aria-label="Enter your name">
+            <button id="save-name-btn" type="button">Save Name</button>
+            <button id="dark-toggle" type="button">Toggle Theme</button>
         </div>
+    </header>
 
-        <div class="project-card" data-category="web">
-    <h3>SWE363 – Portfolio Website</h3>
-    <p>
-        Built a responsive personal portfolio website using HTML, CSS, and JavaScript.
-    </p>
-</div>
+    <nav class="site-nav">
+        <a href="#about">About</a>
+        <a href="#guide">Guide</a>
+        <a href="#projects">Projects</a>
+        <a href="#github-projects">GitHub</a>
+        <a href="#contact">Contact</a>
+    </nav>
 
-    </div>
-</section>
+    <main>
+        <section id="about" class="about">
+            <div class="about-text">
+                <h2>About Me</h2>
+                <p id="greeting" class="greeting"></p>
+                <p id="personal-message" class="personal-message"></p>
+                <p>
+                    I am a Software Engineering student passionate about artificial intelligence,
+                    intelligent systems, and building useful digital solutions.
+                </p>
+                <p>
+                    I enjoy developing interactive web applications, improving user experience,
+                    and learning how software can solve real problems.
+                </p>
+            </div>
 
-<!-- ===== Contact Section ===== -->
-<section id="contact">
-    <h2>Contact</h2>
-   <form id="contact-form">
-    <input type="text" id="contact-name" placeholder="Name">
-    <input type="email" id="contact-email" placeholder="Email">
-    <textarea id="contact-message" placeholder="Message" rows="4"></textarea>
-    <button type="submit">Send Message</button>
-    <p id="form-message" class="form-message"></p>
-</form>
-</section>
+            <div class="about-image">
+                <img src="assets/images/s202278520.jpg" alt="Portrait of Forkan AlSalman" loading="lazy">
+            </div>
+        </section>
 
-<script src="js/script.js"></script>
+        <section id="guide" class="guide-section">
+            <h2>How to Use This Website</h2>
+            <div class="guide-cards">
+                <div class="guide-card">
+                    <h3>1. Start at About</h3>
+                    <p>Read the introduction and save your name to personalize the welcome message.</p>
+                </div>
+                <div class="guide-card">
+                    <h3>2. Explore Projects</h3>
+                    <p>Use the category filter and sort menu to view projects based on type or date.</p>
+                </div>
+                <div class="guide-card">
+                    <h3>3. Open Details</h3>
+                    <p>Click “View Details” on any project card to read technologies, date, and description.</p>
+                </div>
+                <div class="guide-card">
+                    <h3>4. Check GitHub</h3>
+                    <p>See dynamically loaded repositories from the GitHub API in the GitHub section.</p>
+                </div>
+                <div class="guide-card">
+                    <h3>5. Contact Me</h3>
+                    <p>Fill out the contact form. The form validates your input before accepting submission.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+
+            <div class="project-controls">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all" type="button">All</button>
+                    <button class="filter-btn" data-filter="ai" type="button">AI</button>
+                    <button class="filter-btn" data-filter="design" type="button">Design</button>
+                    <button class="filter-btn" data-filter="web" type="button">Web</button>
+                </div>
+
+                <div class="sort-control">
+                    <label for="sort-select">Sort By:</label>
+                    <select id="sort-select">
+                        <option value="newest">Newest First</option>
+                        <option value="oldest">Oldest First</option>
+                        <option value="title">Title (A-Z)</option>
+                    </select>
+                </div>
+            </div>
+
+            <p id="empty-message" class="empty-message"></p>
+
+            <div class="projects-container" id="projects-container">
+                <article class="project-card" data-category="ai" data-date="2025-11-01" data-title="COE292 – AI Model">
+                    <img src="assets/images/ai-project.jpg" alt="AI project preview" class="project-image" loading="lazy">
+                    <div class="project-content">
+                        <span class="project-tag">AI</span>
+                        <h3>COE292 – AI Model</h3>
+                        <p class="project-date">Date: November 2025</p>
+                        <p>
+                            Developed a machine learning model for intelligent prediction and data analysis using AI techniques.
+                        </p>
+                        <button class="details-btn" type="button">View Details</button>
+                        <div class="project-details hidden">
+                            <p><strong>Tools:</strong> Python, Machine Learning, Data Analysis</p>
+                            <p><strong>Role:</strong> Model design, testing, and evaluation</p>
+                            <p><strong>Goal:</strong> Improve prediction accuracy using intelligent algorithms.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card" data-category="design" data-date="2025-09-10" data-title="SWE216 – App Design">
+                    <img src="assets/images/design-project.jpg" alt="App design preview" class="project-image" loading="lazy">
+                    <div class="project-content">
+                        <span class="project-tag">Design</span>
+                        <h3>SWE216 – App Design</h3>
+                        <p class="project-date">Date: September 2025</p>
+                        <p>
+                            Designed and prototyped a modern mobile application with a focus on user experience and clean UI design.
+                        </p>
+                        <button class="details-btn" type="button">View Details</button>
+                        <div class="project-details hidden">
+                            <p><strong>Tools:</strong> Figma, UI/UX Principles</p>
+                            <p><strong>Role:</strong> Wireframing and interface design</p>
+                            <p><strong>Goal:</strong> Create a simple and user-friendly application prototype.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card" data-category="web" data-date="2026-03-01" data-title="SWE363 – Portfolio Website">
+                    <img src="assets/images/web-project.jpg" alt="Portfolio website preview" class="project-image" loading="lazy">
+                    <div class="project-content">
+                        <span class="project-tag">Web</span>
+                        <h3>SWE363 – Portfolio Website</h3>
+                        <p class="project-date">Date: March 2026</p>
+                        <p>
+                            Built a responsive personal portfolio website using HTML, CSS, and JavaScript.
+                        </p>
+                        <button class="details-btn" type="button">View Details</button>
+                        <div class="project-details hidden">
+                            <p><strong>Tools:</strong> HTML, CSS, JavaScript</p>
+                            <p><strong>Role:</strong> Front-end development and testing</p>
+                            <p><strong>Goal:</strong> Present personal background, skills, and projects in a professional way.</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="github-projects">
+            <h2>GitHub Repositories</h2>
+            <p class="section-description">
+                This section loads my public repositories dynamically using the GitHub API.
+            </p>
+            <p id="api-status" class="api-status">Loading GitHub repositories...</p>
+            <div id="github-container" class="github-container"></div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p class="section-description">
+                Fill out the form below. The form checks your input before submission.
+            </p>
+
+            <form id="contact-form" novalidate>
+                <input type="text" id="contact-name" placeholder="Name" aria-label="Your name">
+                <input type="email" id="contact-email" placeholder="Email" aria-label="Your email">
+                <textarea id="contact-message" placeholder="Message" rows="5" aria-label="Your message"></textarea>
+                <button type="submit">Send Message</button>
+                <p id="form-message" class="form-message"></p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Forkan AlSalman | SWE363 Assignment 3</p>
+    </footer>
+
+    <script src="js/script.js"></script>
 </body>
 </html>

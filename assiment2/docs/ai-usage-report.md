@@ -1,74 +1,78 @@
 # AI Usage Report
 
-## AI Tools Used
+## Tools Used and Use Cases
 
-The following AI tools were used during the development of this assignment:
+### 1. ChatGPT
+ChatGPT was used to:
+- plan Assignment 3 features
+- improve JavaScript logic
+- refine form validation
+- improve documentation structure
+- suggest user experience improvements
+- help organize code quality fixes based on instructor feedback
 
-1. ChatGPT  
-   Used for generating ideas, explaining JavaScript logic, and improving interactive features.
-
-2. GitHub Copilot  
-   Used for code completion, syntax suggestions, and improving code structure inside the editor.
-
----
-
-## How I Used AI
-
-I used AI tools to support the development of Assignment 2 in the following ways:
-
-- Brainstorming ideas for interactive portfolio features
-- Understanding how to implement dynamic content using JavaScript
-- Improving the dark mode feature using localStorage
-- Implementing project filtering functionality
-- Creating form validation and user feedback messages
-- Improving UI/UX design and responsiveness
-- Writing and organizing documentation
+### 2. GitHub Copilot
+GitHub Copilot was used to:
+- speed up code completion
+- suggest syntax improvements
+- assist with repeated HTML/CSS/JavaScript patterns
 
 ---
 
-## What AI Helped With
+## Benefits of Using AI
 
-AI tools helped me:
-
-- Implement dynamic features such as greeting messages and project filtering
-- Use localStorage to store user preferences (theme and visitor name)
-- Build form validation logic and display error/success messages
-- Improve layout design and responsiveness using CSS
-- Debug JavaScript issues and improve code readability
-
----
-
-## My Contribution and Modifications
-
-All AI-generated suggestions were carefully reviewed and modified before being used.
-
-I:
-- Adjusted the code to fit my project structure
-- Changed styling and layout to match my design
-- Tested all features and fixed errors manually
-- Ensured the logic matches assignment requirements
+Using AI provided several benefits:
+- faster debugging and problem solving
+- help in organizing project structure
+- better understanding of advanced JavaScript features
+- improved clarity in technical writing
+- faster generation of draft code for testing and refinement
 
 ---
 
-## What I Learned
+## Challenges and Limitations
+
+AI also had some challenges:
+- some suggestions needed modification before fitting the project
+- not every generated idea matched the assignment requirements exactly
+- AI-generated code still required manual testing and correction
+- some code suggestions were too generic and needed personalization
+
+---
+
+## Risks of AI Usage
+
+There are risks when using AI in software development:
+- accepting incorrect code without review
+- depending too much on generated output
+- producing code that looks correct but does not fully satisfy assignment requirements
+- reducing learning if the code is copied without understanding
+
+To avoid these risks, I reviewed, tested, and modified all AI-assisted suggestions before using them.
+
+---
+
+## Learning Outcomes
 
 From using AI tools, I learned:
-
-- How to use localStorage in JavaScript
-- How to create dynamic content based on user interaction
-- How to implement project filtering
-- How to validate forms and display feedback messages
-- How to improve user experience using animations and transitions
+- how to use fetch() with an external API
+- how to combine filtering and sorting in JavaScript
+- how to improve validation using step-by-step logic
+- how to manage browser state with localStorage
+- how to organize better technical documentation
+- how to evaluate AI suggestions critically instead of accepting them directly
 
 ---
 
-## Responsible Use
+## Responsible Use and Modifications
 
-AI was used as a support tool to assist learning and development.
+AI was used as a support tool, not a replacement for my own work.
 
 I made sure to:
-- Understand all generated code
-- Modify and test it before use
-- Not rely on AI without comprehension
+- review all generated code carefully
+- modify suggestions to match my own project
+- test the final implementation manually
+- understand the purpose of each feature
+- maintain academic integrity by documenting AI use transparently
 
-The final project reflects my own understanding and implementation.
+The final submission reflects my own understanding, testing, editing, and implementation.
