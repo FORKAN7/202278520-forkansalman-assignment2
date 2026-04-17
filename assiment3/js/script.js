@@ -204,7 +204,30 @@ async function fetchGitHubRepos() {
 
         githubContainer.innerHTML = "";
 
+        /* ===== Add TripMate first ===== */
+        const tripMateCard = document.createElement("article");
+        tripMateCard.className = "github-card";
+
+        tripMateCard.innerHTML = `
+            <h3>TripMate</h3>
+            <p>
+                TripMate is a travel planning web application that helps users organize trips,
+                explore destinations, and manage travel plans efficiently.
+            </p>
+            <p><strong>Language:</strong> JavaScript</p>
+            <a href="https://github.com/Naba-Alali/TripMate" target="_blank" rel="noopener noreferrer">
+                View Repository
+            </a>
+        `;
+
+        githubContainer.appendChild(tripMateCard);
+
+        /* ===== Show your repos except the unwanted one ===== */
         repos.forEach((repo) => {
+            if (repo.name === "3-1-css-basics-zainab14-48") {
+                return;
+            }
+
             const repoCard = document.createElement("article");
             repoCard.className = "github-card";
 
