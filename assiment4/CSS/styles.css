@@ -423,3 +423,30 @@ footer {
         transform: translateY(0);
     }
 }
+.typing-line {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--primary);
+    min-height: 34px;
+    margin: 18px 0;
+}
+
+.cursor {
+    display: inline-block;
+    margin-left: 3px;
+    animation: blink 0.8s infinite;
+}
+
+.dark-mode .typing-line {
+    color: #c77dff;
+}
+
+@keyframes blink {
+    0%, 50% {
+        opacity: 1;
+    }
+
+    51%, 100% {
+        opacity: 0;
+    }
+}

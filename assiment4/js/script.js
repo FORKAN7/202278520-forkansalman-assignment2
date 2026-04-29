@@ -203,68 +203,71 @@ function createRepoCard(repo) {
     githubContainer.appendChild(repoCard);
 }
 
-async function fetchGitHubRepos() {
-    const username = "FORKAN7";
-    const hiddenRepos = ["3-1-css-basics-zainab14-48"];
+/* ===== GitHub Repository Section ===== */
+function createRepoCard(repo) {
+    const repoCard = document.createElement("article");
+    repoCard.className = "github-card";
 
-    try {
-        apiStatus.textContent = "Loading GitHub repositories...";
-        githubContainer.innerHTML = "";
+    repoCard.innerHTML = `
+        <h3>${repo.name}</h3>
+        <p>${repo.description}</p>
+        <p><strong>Language:</strong> ${repo.language}</p>
+        <p><strong>Type:</strong> ${repo.type}</p>
+        <a href="${repo.url}" target="_blank" rel="noopener noreferrer">View Repository</a>
+    `;
 
-        createRepoCard({
+    githubContainer.appendChild(repoCard);
+}
+
+function showSelectedRepositories() {
+    apiStatus.textContent = "";
+    githubContainer.innerHTML = "";
+
+    const selectedRepos = [
+        {
             name: "TripMate",
             description: "A travel planning web application that helps users organize trips, explore destinations, and manage travel plans efficiently.",
             language: "JavaScript",
+            type: "Web Application",
             url: "https://github.com/Naba-Alali/TripMate"
-        });
-
-        const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=6`);
-
-        if (!response.ok) {
-            throw new Error("Failed to fetch repositories.");
+        },
+        {
+            name: "VEX U Robot System",
+            description: "A robotics programming project for a VEX U robot system using C++ to control robot movement, behavior, and competition-style tasks.",
+            language: "C++",
+            type: "Robotics / Embedded Systems",
+            url: "https://github.com/FORKAN7/w7sh-test"
+        },
+        {
+            name: "Interactive Portfolio Assignment 2",
+            description: "An earlier portfolio project that introduced dark mode, visitor name storage, project filtering, and contact form validation.",
+            language: "HTML, CSS, JavaScript",
+            type: "Portfolio Development",
+            url: "https://github.com/FORKAN7/202278520-forkansalman-assignment2"
         }
+    ];
 
-        const repos = await response.json();
-
-        repos
-            .filter((repo) => !hiddenRepos.includes(repo.name))
-            .slice(0, 5)
-            .forEach((repo) => {
-                createRepoCard({
-                    name: repo.name,
-                    description: repo.description || "No description available.",
-                    language: repo.language || "Not specified",
-                    url: repo.html_url
-                });
-            });
-
-        apiStatus.textContent = "";
-    } catch (error) {
-    console.log("GitHub API failed, showing fallback only");
-
-    apiStatus.textContent = "";
-
-    githubContainer.innerHTML = "";
-
-    const tripMateCard = document.createElement("article");
-    tripMateCard.className = "github-card";
-
-    tripMateCard.innerHTML = `
-        <h3>TripMate</h3>
-        <p>
-            A travel planning web application that helps users organize trips,
-            explore destinations, and manage travel plans efficiently.
-        </p>
-        <p><strong>Language:</strong> JavaScript</p>
-        <a href="https://github.com/Naba-Alali/TripMate" target="_blank">
-            View Repository
-        </a>
-    `;
-
-    githubContainer.appendChild(tripMateCard);
+    selectedRepos.forEach((repo) => {
+        createRepoCard(repo);
+    });
 }
-}
+/* ===== Typing Hero Quote ===== */
+function startTypingEffect() {
+    const typingText = document.getElementById("typing-text");
+const quote = "From ideas to intelligent systems — this portfolio tells my journey.";
+    let index = 0;
 
+    function typeCharacter() {
+        if (index < quote.length) {
+            typingText.textContent += quote.charAt(index);
+            index++;
+            setTimeout(typeCharacter, 55);
+        }
+    }
+
+    typingText.textContent = "";
+    typeCharacter();
+}
 /* ===== Initial Load ===== */
 function initializePage() {
     setGreeting();
@@ -274,8 +277,8 @@ function initializePage() {
     applyActiveFilterButton();
     sortSelect.value = currentSort;
     renderProjects();
-
-    fetchGitHubRepos();
+    showSelectedRepositories();
+    startTypingEffect();
 }
 
 initializePage();
