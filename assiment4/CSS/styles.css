@@ -82,6 +82,13 @@ section {
     animation: fadeIn 0.6s ease;
 }
 
+#skills h2,
+#projects h2,
+#github-projects h2,
+#contact h2 {
+    text-align: center;
+}
+
 .about {
     display: flex;
     align-items: center;
@@ -111,14 +118,14 @@ section {
     color: var(--primary);
 }
 
-.guide-section h2,
-#projects h2,
-#github-projects h2,
-#contact h2 {
+.section-description {
     text-align: center;
+    max-width: 720px;
+    margin: 0 auto;
+    color: var(--text-light);
 }
 
-.guide-cards,
+.skills-container,
 .projects-container,
 .github-container {
     display: flex;
@@ -128,7 +135,7 @@ section {
     margin-top: 30px;
 }
 
-.guide-card,
+.skill-card,
 .project-card,
 .github-card {
     background: var(--surface);
@@ -136,10 +143,23 @@ section {
     box-shadow: var(--shadow);
 }
 
-.guide-card {
-    width: 240px;
-    padding: 20px;
+.skill-card {
+    width: 260px;
+    padding: 22px;
     text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-card h3 {
+    margin-top: 0;
+    color: var(--primary);
+}
+
+.skill-card:hover,
+.project-card:hover,
+.github-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(123, 44, 191, 0.15);
 }
 
 .project-controls {
@@ -148,7 +168,7 @@ section {
     align-items: center;
     gap: 20px;
     flex-wrap: wrap;
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 .filter-buttons {
@@ -172,13 +192,6 @@ section {
     width: 320px;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.project-card:hover,
-.github-card:hover,
-.guide-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 15px 35px rgba(123, 44, 191, 0.15);
 }
 
 .project-image {
@@ -209,7 +222,6 @@ section {
 }
 
 .project-date,
-.section-description,
 .empty-message {
     color: var(--text-light);
 }
@@ -220,6 +232,18 @@ section {
     border-top: 1px solid #ececec;
 }
 
+.project-content a {
+    display: inline-block;
+    margin: 8px 0 12px;
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.project-content a:hover {
+    text-decoration: underline;
+}
+
 .hidden {
     display: none;
 }
@@ -227,6 +251,7 @@ section {
 .github-card {
     width: 300px;
     padding: 22px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .github-card a {
@@ -325,7 +350,7 @@ footer {
 
 .dark-mode .site-header,
 .dark-mode .site-nav,
-.dark-mode .guide-card,
+.dark-mode .skill-card,
 .dark-mode .project-card,
 .dark-mode .github-card,
 .dark-mode form {
@@ -392,6 +417,7 @@ footer {
         opacity: 0;
         transform: translateY(12px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);

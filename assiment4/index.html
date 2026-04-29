@@ -4,26 +4,26 @@
     <meta charset="UTF-8">
     <title>Forkan AlSalman | Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Forkan AlSalman portfolio website with projects, GitHub integration, and interactive features.">
+    <meta name="description" content="Forkan AlSalman professional portfolio website for SWE363 Assignment 4.">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <header class="site-header">
         <div class="header-text">
             <h1>Forkan AlSalman</h1>
-            <p>Software Engineering Student</p>
+            <p>Software Engineering Student | Web Developer | AI Enthusiast</p>
         </div>
 
         <div class="header-actions">
             <input type="text" id="name-input" placeholder="Enter your name" aria-label="Enter your name">
             <button id="save-name-btn" type="button">Save Name</button>
-            <button id="dark-toggle" type="button">Darck Mode</button>
+            <button id="dark-toggle" type="button">Dark Mode</button>
         </div>
     </header>
 
     <nav class="site-nav">
         <a href="#about">About</a>
-        <a href="#guide">Guide</a>
+        <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
         <a href="#github-projects">GitHub</a>
         <a href="#contact">Contact</a>
@@ -35,13 +35,16 @@
                 <h2>About Me</h2>
                 <p id="greeting" class="greeting"></p>
                 <p id="personal-message" class="personal-message"></p>
+
                 <p>
-                    I am a Software Engineering student passionate about artificial intelligence,
-                    intelligent systems, and building useful digital solutions.
+                    I am a Software Engineering student interested in web development,
+                    artificial intelligence, and building practical digital solutions.
                 </p>
+
                 <p>
-                    I enjoy developing interactive web applications, improving user experience,
-                    and learning how software can solve real problems.
+                    This portfolio represents my final SWE363 personal web application.
+                    It combines responsive design, JavaScript interactivity, API integration,
+                    state management, form validation, and polished documentation.
                 </p>
             </div>
 
@@ -50,34 +53,40 @@
             </div>
         </section>
 
-        <section id="guide" class="guide-section">
-            <h2>How to Use This Website</h2>
-            <div class="guide-cards">
-                <div class="guide-card">
-                    <h3>1. Start at About</h3>
-                    <p>Read the introduction and save your name to personalize the welcome message.</p>
+        <section id="skills" class="skills-section">
+            <h2>Skills</h2>
+            <p class="section-description">
+                A summary of the main technical skills demonstrated in this portfolio.
+            </p>
+
+            <div class="skills-container">
+                <div class="skill-card">
+                    <h3>Front-End Development</h3>
+                    <p>HTML, CSS, responsive layout, accessibility, and user interface design.</p>
                 </div>
-                <div class="guide-card">
-                    <h3>2. Explore Projects</h3>
-                    <p>Use the category filter and sort menu to view projects based on type or date.</p>
+
+                <div class="skill-card">
+                    <h3>JavaScript Logic</h3>
+                    <p>DOM manipulation, event handling, filtering, sorting, and validation.</p>
                 </div>
-                <div class="guide-card">
-                    <h3>3. Open Details</h3>
-                    <p>Click “View Details” on any project card to read technologies, date, and description.</p>
+
+                <div class="skill-card">
+                    <h3>API Integration</h3>
+                    <p>Fetching and displaying repository data using the GitHub API.</p>
                 </div>
-                <div class="guide-card">
-                    <h3>4. Check GitHub</h3>
-                    <p>See dynamically loaded repositories from the GitHub API in the GitHub section.</p>
-                </div>
-                <div class="guide-card">
-                    <h3>5. Contact Me</h3>
-                    <p>Fill out the contact form. The form validates your input before accepting submission.</p>
+
+                <div class="skill-card">
+                    <h3>State Management</h3>
+                    <p>Saving theme, visitor name, filter, and sort preferences using localStorage.</p>
                 </div>
             </div>
         </section>
 
         <section id="projects">
             <h2>Projects</h2>
+            <p class="section-description">
+                Explore selected projects using category filters, sorting, and expandable details.
+            </p>
 
             <div class="project-controls">
                 <div class="filter-buttons">
@@ -100,16 +109,47 @@
             <p id="empty-message" class="empty-message"></p>
 
             <div class="projects-container" id="projects-container">
+                <article class="project-card" data-category="web" data-date="2026-04-01" data-title="TripMate">
+                    <img src="assets/images/tripmate.jpg" alt="TripMate travel planning web application preview" class="project-image" loading="lazy">
+
+                    <div class="project-content">
+                        <span class="project-tag">Web</span>
+                        <h3>TripMate</h3>
+                        <p class="project-date">Date: April 2026</p>
+
+                        <p>
+                            A travel planning web application that helps users organize trips,
+                            explore destinations, and manage travel plans efficiently.
+                        </p>
+
+                        <a href="https://github.com/Naba-Alali/TripMate" target="_blank" rel="noopener noreferrer">
+                            View Repository
+                        </a>
+
+                        <button class="details-btn" type="button">View Details</button>
+
+                        <div class="project-details hidden">
+                            <p><strong>Tools:</strong> HTML, CSS, JavaScript</p>
+                            <p><strong>Role:</strong> Front-end development and interface improvement</p>
+                            <p><strong>Goal:</strong> Improve travel planning through a clean and user-friendly web experience.</p>
+                        </div>
+                    </div>
+                </article>
+
                 <article class="project-card" data-category="ai" data-date="2025-11-01" data-title="COE292 – AI Model">
                     <img src="assets/images/ai-project.jpg" alt="AI project preview" class="project-image" loading="lazy">
+
                     <div class="project-content">
                         <span class="project-tag">AI</span>
                         <h3>COE292 – AI Model</h3>
                         <p class="project-date">Date: November 2025</p>
+
                         <p>
-                            Developed a machine learning model for intelligent prediction and data analysis using AI techniques.
+                            Developed a machine learning model for intelligent prediction and data analysis.
                         </p>
+
                         <button class="details-btn" type="button">View Details</button>
+
                         <div class="project-details hidden">
                             <p><strong>Tools:</strong> Python, Machine Learning, Data Analysis</p>
                             <p><strong>Role:</strong> Model design, testing, and evaluation</p>
@@ -120,14 +160,18 @@
 
                 <article class="project-card" data-category="design" data-date="2025-09-10" data-title="SWE216 – App Design">
                     <img src="assets/images/design-project.jpg" alt="App design preview" class="project-image" loading="lazy">
+
                     <div class="project-content">
                         <span class="project-tag">Design</span>
                         <h3>SWE216 – App Design</h3>
                         <p class="project-date">Date: September 2025</p>
+
                         <p>
-                            Designed and prototyped a modern mobile application with a focus on user experience and clean UI design.
+                            Designed and prototyped a modern mobile application with a focus on user experience.
                         </p>
+
                         <button class="details-btn" type="button">View Details</button>
+
                         <div class="project-details hidden">
                             <p><strong>Tools:</strong> Figma, UI/UX Principles</p>
                             <p><strong>Role:</strong> Wireframing and interface design</p>
@@ -138,18 +182,22 @@
 
                 <article class="project-card" data-category="web" data-date="2026-03-01" data-title="SWE363 – Portfolio Website">
                     <img src="assets/images/web-project.jpg" alt="Portfolio website preview" class="project-image" loading="lazy">
+
                     <div class="project-content">
                         <span class="project-tag">Web</span>
                         <h3>SWE363 – Portfolio Website</h3>
                         <p class="project-date">Date: March 2026</p>
+
                         <p>
                             Built a responsive personal portfolio website using HTML, CSS, and JavaScript.
                         </p>
+
                         <button class="details-btn" type="button">View Details</button>
+
                         <div class="project-details hidden">
-                            <p><strong>Tools:</strong> HTML, CSS, JavaScript</p>
-                            <p><strong>Role:</strong> Front-end development and testing</p>
-                            <p><strong>Goal:</strong> Present personal background, skills, and projects in a professional way.</p>
+                            <p><strong>Tools:</strong> HTML, CSS, JavaScript, GitHub API</p>
+                            <p><strong>Role:</strong> Front-end development, testing, and documentation</p>
+                            <p><strong>Goal:</strong> Present personal background, skills, and projects professionally.</p>
                         </div>
                     </div>
                 </article>
@@ -159,8 +207,9 @@
         <section id="github-projects">
             <h2>GitHub Repositories</h2>
             <p class="section-description">
-                This section loads my public repositories dynamically using the GitHub API.
+                This section loads selected repository information dynamically using the GitHub API.
             </p>
+
             <p id="api-status" class="api-status">Loading GitHub repositories...</p>
             <div id="github-container" class="github-container"></div>
         </section>
@@ -168,7 +217,7 @@
         <section id="contact">
             <h2>Contact</h2>
             <p class="section-description">
-                Fill out the form below. The form checks your input before submission.
+                Fill out the form below. The form validates your input before submission.
             </p>
 
             <form id="contact-form" novalidate>
@@ -182,7 +231,7 @@
     </main>
 
     <footer>
-        <p>© 2026 Forkan AlSalman | SWE363 Assignment 3</p>
+        <p>© 2026 Forkan AlSalman | SWE363 Assignment 4</p>
     </footer>
 
     <script src="js/script.js"></script>

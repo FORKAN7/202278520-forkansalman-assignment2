@@ -9,7 +9,6 @@ const projectCards = Array.from(document.querySelectorAll(".project-card"));
 const emptyMessage = document.getElementById("empty-message");
 const sortSelect = document.getElementById("sort-select");
 const projectsContainer = document.getElementById("projects-container");
-const detailButtons = document.querySelectorAll(".details-btn");
 
 const contactForm = document.getElementById("contact-form");
 const contactName = document.getElementById("contact-name");
@@ -26,36 +25,36 @@ let currentSort = localStorage.getItem("projectSort") || "newest";
 /* ===== Greeting by Time ===== */
 function setGreeting() {
     const currentHour = new Date().getHours();
-    let greeting = "";
 
     if (currentHour < 12) {
-        greeting = "Good Morning ☀";
+        greetingElement.textContent = "Good Morning ☀";
     } else if (currentHour < 18) {
-        greeting = "Good Afternoon 🌤";
+        greetingElement.textContent = "Good Afternoon 🌤";
     } else {
-        greeting = "Good Evening 🌙";
+        greetingElement.textContent = "Good Evening 🌙";
     }
-
-    greetingElement.textContent = greeting;
 }
 
 /* ===== Dark Mode with localStorage ===== */
 function loadTheme() {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "dark") {
+    if (localStorage.getItem("theme") === "dark") {
         document.body.classList.add("dark-mode");
+        toggleButton.textContent = "Light Mode";
     }
 }
 
 toggleButton.addEventListener("click", () => {
     document.body.classList.toggle("dark-mode");
-    const theme = document.body.classList.contains("dark-mode") ? "dark" : "light";
-    localStorage.setItem("theme", theme);
+
+    const isDark = document.body.classList.contains("dark-mode");
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+    toggleButton.textContent = isDark ? "Light Mode" : "Dark Mode";
 });
 
 /* ===== Save Visitor Name ===== */
 function loadVisitorName() {
     const savedName = localStorage.getItem("visitorName");
+
     if (savedName) {
         personalMessage.textContent = `Welcome back, ${savedName}!`;
         nameInput.value = savedName;
@@ -108,11 +107,9 @@ function renderProjects() {
         projectsContainer.appendChild(card);
     });
 
-    if (sortedCards.length === 0) {
-        emptyMessage.textContent = "No projects found for the selected filter.";
-    } else {
-        emptyMessage.textContent = "";
-    }
+    emptyMessage.textContent = sortedCards.length === 0
+        ? "No projects found for the selected filter."
+        : "";
 
     attachDetailEvents();
 }
@@ -121,6 +118,7 @@ filterButtons.forEach((button) => {
     button.addEventListener("click", () => {
         currentFilter = button.dataset.filter;
         localStorage.setItem("projectFilter", currentFilter);
+
         applyActiveFilterButton();
         renderProjects();
     });
@@ -140,7 +138,10 @@ function attachDetailEvents() {
         button.onclick = () => {
             const details = button.nextElementSibling;
             details.classList.toggle("hidden");
-            button.textContent = details.classList.contains("hidden") ? "View Details" : "Hide Details";
+
+            button.textContent = details.classList.contains("hidden")
+                ? "View Details"
+                : "Hide Details";
         };
     });
 }
@@ -188,11 +189,34 @@ contactForm.addEventListener("submit", (event) => {
 });
 
 /* ===== GitHub API Integration ===== */
+function createRepoCard(repo) {
+    const repoCard = document.createElement("article");
+    repoCard.className = "github-card";
+
+    repoCard.innerHTML = `
+        <h3>${repo.name}</h3>
+        <p>${repo.description}</p>
+        <p><strong>Language:</strong> ${repo.language}</p>
+        <a href="${repo.url}" target="_blank" rel="noopener noreferrer">View Repository</a>
+    `;
+
+    githubContainer.appendChild(repoCard);
+}
+
 async function fetchGitHubRepos() {
     const username = "FORKAN7";
+    const hiddenRepos = ["3-1-css-basics-zainab14-48"];
 
     try {
         apiStatus.textContent = "Loading GitHub repositories...";
+        githubContainer.innerHTML = "";
+
+        createRepoCard({
+            name: "TripMate",
+            description: "A travel planning web application that helps users organize trips, explore destinations, and manage travel plans efficiently.",
+            language: "JavaScript",
+            url: "https://github.com/Naba-Alali/TripMate"
+        });
 
         const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=6`);
 
@@ -202,49 +226,43 @@ async function fetchGitHubRepos() {
 
         const repos = await response.json();
 
-        githubContainer.innerHTML = "";
-
-        /* ===== Add TripMate first ===== */
-        const tripMateCard = document.createElement("article");
-        tripMateCard.className = "github-card";
-
-        tripMateCard.innerHTML = `
-            <h3>TripMate</h3>
-            <p>
-                TripMate is a travel planning web application that helps users organize trips,
-                explore destinations, and manage travel plans efficiently.
-            </p>
-            <p><strong>Language:</strong> JavaScript</p>
-            <a href="https://github.com/Naba-Alali/TripMate" target="_blank" rel="noopener noreferrer">
-                View Repository
-            </a>
-        `;
-
-        githubContainer.appendChild(tripMateCard);
-
-        /* ===== Show your repos except the unwanted one ===== */
-        repos.forEach((repo) => {
-            if (repo.name === "3-1-css-basics-zainab14-48") {
-                return;
-            }
-
-            const repoCard = document.createElement("article");
-            repoCard.className = "github-card";
-
-            repoCard.innerHTML = `
-                <h3>${repo.name}</h3>
-                <p>${repo.description ? repo.description : "No description available."}</p>
-                <p><strong>Language:</strong> ${repo.language ? repo.language : "Not specified"}</p>
-                <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer">View Repository</a>
-            `;
-
-            githubContainer.appendChild(repoCard);
-        });
+        repos
+            .filter((repo) => !hiddenRepos.includes(repo.name))
+            .slice(0, 5)
+            .forEach((repo) => {
+                createRepoCard({
+                    name: repo.name,
+                    description: repo.description || "No description available.",
+                    language: repo.language || "Not specified",
+                    url: repo.html_url
+                });
+            });
 
         apiStatus.textContent = "";
     } catch (error) {
-        apiStatus.textContent = "Sorry, GitHub repositories could not be loaded right now.";
-    }
+    console.log("GitHub API failed, showing fallback only");
+
+    apiStatus.textContent = "";
+
+    githubContainer.innerHTML = "";
+
+    const tripMateCard = document.createElement("article");
+    tripMateCard.className = "github-card";
+
+    tripMateCard.innerHTML = `
+        <h3>TripMate</h3>
+        <p>
+            A travel planning web application that helps users organize trips,
+            explore destinations, and manage travel plans efficiently.
+        </p>
+        <p><strong>Language:</strong> JavaScript</p>
+        <a href="https://github.com/Naba-Alali/TripMate" target="_blank">
+            View Repository
+        </a>
+    `;
+
+    githubContainer.appendChild(tripMateCard);
+}
 }
 
 /* ===== Initial Load ===== */
@@ -252,9 +270,11 @@ function initializePage() {
     setGreeting();
     loadTheme();
     loadVisitorName();
+
     applyActiveFilterButton();
     sortSelect.value = currentSort;
     renderProjects();
+
     fetchGitHubRepos();
 }
 
